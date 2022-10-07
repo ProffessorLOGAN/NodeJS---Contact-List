@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/home.css">
+
+</head>
+
+<body>
+    <br />
+    <form class="form" action="/create-contact" method="POST">
+        <input type="text" name="name" placeholder="Enter a Name" required>
+        <input type="text" name="phone" placeholder="Enter a Phone" required>
+        <button type="submit">Add New Contact</button>
+    </form>
+
+    <br />
+    <hr />
+    <br />
+
+    <h1 class="page-heading"> <img src="https://www.freeiconspng.com/thumbs/contact-icon-png/contacts-icon--26.png" />
+        Contact List </h1>
+
+    <div class="contact-list">
+        <ul class="contacts">
+            <% for(let i of contact_list) {%>
+                <li>
+                    <div><img src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" />
+                        <p class="name">
+                            <%= i.name%>
+                        </p>
+
+                        <p>:- </p>
+                        <p>
+                            <%= i.phone %>
+                        </p>
+                    </div>
+                    <div>
+                        <button><a href="/delete-contact/?id=<%=i._id %>"">Delete</a></button>
+                    </div>
+
+                </li>
+                <%}%>
+        </ul>
+    </div>
+
+
+    <script type=" text/javascript" src="/js/home.js"></script>
+
+</body>
+
+</html>
